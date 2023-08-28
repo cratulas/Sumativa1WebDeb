@@ -9,7 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- Integracion CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/paneladmin.css">
+    <script src="js/paneladmin.js"></script>
+
     <!-- Integracion con fontawesome -->
     <script src="https://kit.fontawesome.com/ab6bee0ad1.js" crossorigin="anonymous"></script>
   </head>
@@ -59,37 +61,84 @@
       <!-- Navbar -->
       </header>
 
-   <!-- panel del administrador -->
-<div class="admin-panel">
-<div class="CONTENEDOR1">
-<h1>Panel de administrador</h1>
-<p>Tu papel de administrador es: <span class="admin-badge">Administrador</span></p>
-</div>
-</div>
-<div class="login-CONTENEDOR2">
-    <h2>Iniciar Sesión - ROOT</h2>
-    <form id="loginForm" method="post">
-        <input type="text" name="username" placeholder="Nombre de Usuario" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <input type="submit" value="Iniciar Sesión">
+   <!-- panel de administracion usuario y producto -->
+   <!-- tengo una duda el cSpell solo reconoce ingles ?= -->
+   <div class="product-panel">
+    <h2>Agregar Nuevo Producto</h2>
+    <form id="addarticulo" enctype="multipart/form-data">
+        <label for="productName">Nombre del Producto:</label>
+        <input type="text" id="productName" name="productName" required>
+        
+        <label for="descripcionProducto">Descripción:</label>
+        <textarea id="descripcionProducto" name="descripcionProducto" required></textarea>
+
+
+    
+        <label for="productoPrecio">Precio:</label>
+        <input type="number" id="productoPrecio" name="productoPrecio" step="0.01" required>
+        
+        <label for="productoImagen">Imagen del Producto:</label>
+        <input type="file" id="productoImagen" name="productoImagen" accept="image/*" required>
+        
+        <button type="submit">Agregar Producto</button>
     </form>
 </div>
+   <!-- la logica del panel es que la unica llave obligatoria es usuario para
+eliminar usuario y buscar usuario, otro paneles necesario en cambiar contraseña -->
 
-<script>
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        const respuestaExitosa = true;  
+<div class="product-usuario">
+    <h2>Gestion usuario</h2>
+    <form action="cambiar_contraseña.php" method="POST">
+        <label class="formulario-label" for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+        
+        <label class="formulario-label" for="contraseña_actual">Contraseña Actual:</label>
+        <input type="password" id="contraseña_actual" name="contraseña_actual" required><br><br>
+        
+        <label class="formulario-label" for="nueva_contraseña">Nueva Contraseña:</label>
+        <input type="password" id="nueva_contraseña" name="nueva_contraseña" required><br><br>
+        
+        <label class="formulario-label" for="confirmar_contraseña">Confirmar Nueva Contraseña:</label>
+        <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" required><br><br>
+        
+        <input type="submit" value="Cambiar Contraseña">
+        <input type="submit" value="Eliminar Usuario">
+        <input type="submit" value="Buscar Usuario">
+    </form>
     
-        if (respuestaExitosa) {
-            window.location.href = " paneladmin.html";
-        } else {
-            alert("Verifica tus datos.");
-        }
-    });
-    </script>
-    
+</div>
 
-   <!-- NO EXPLICARON COMO CONECTAR LA BD NI EN CLASE NI EN FORO NI AVA -->
+
+<div class="editarProductoForm">
+    <h2>Editar producto</h2>
+
+    <form id="editarProductoForm">
+        <label class="editarProductoLabel" for="productName">Nombre del Producto:</label>
+        <input type="text" id="productName" name="productName" required><br><br>
+        
+        <label class="editarProductoLabel" for="productDescription">Descripción:</label>
+        <textarea id="productDescription" name="productDescription" required></textarea><br><br>
+        
+        <label class="editarProductoLabel" for="productPrice">Precio:</label>
+        <input type="number" id="productPrice" name="productPrice" step="0.01" required><br><br>
+        
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    
+</div>
+
+
+<div class="buscarUsuarioForm">
+    <h2>Buscar usuario</h2>
+<form id="buscarUsuarioForm">
+    <label class="editarProductoLabel" for="usuario">Buscar Usuario:</label>
+    <input type="text" id="usuario" name="usuario" required>
+    <button type="submit">Buscar</button>
+
+    <button id="eliminarUsuarioBtn" disabled>Eliminar Usuario</button>
+</form>
+</div>
+
 
 
       <div class="container-large mt-5">
