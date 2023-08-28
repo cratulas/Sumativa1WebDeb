@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+
+    <!-- Integracion con boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- Integracion CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- Integracion con fontawesome -->
+    <script src="https://kit.fontawesome.com/ab6bee0ad1.js" crossorigin="anonymous"></script>
+  </head>
+<body>
+    <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+      <div class="container">
+      <a class="navbar-brand" href="index.html"><span style="color: #5e9693;">Fromagerie</span></a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Online Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav d-flex flex-row">
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="shoppingCart.html">
+                  <i class="fas fa-shopping-cart"></i>
+                </a>
+              </li>
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="login.html">
+                  <i class="fa fa-user"></i>
+                </a>
+              </li>
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link" href="#!">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar -->
+      </header>
+
+   <!-- panel del administrador -->
+<div class="admin-panel">
+<div class="CONTENEDOR1">
+<h1>Panel de administrador</h1>
+<p>Tu papel de administrador es: <span class="admin-badge">Administrador</span></p>
+</div>
+</div>
+<div class="login-CONTENEDOR2">
+    <h2>Iniciar Sesión - ROOT</h2>
+    <form id="loginForm" method="post">
+        <input type="text" name="username" placeholder="Nombre de Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const respuestaExitosa = true;  
+    
+        if (respuestaExitosa) {
+            window.location.href = "aqui_va_la_url_de_la_pagina_destino.html";
+        } else {
+            alert("Verifica tus datos.");
+        }
+    });
+    </script>
+    
+
+   <!-- NO EXPLICARON COMO CONECTAR LA BD NI EN CLASE NI EN FORO NI AVA -->
+
+
+      <div class="container-large mt-5">
+        <!-- Footer -->
+        <footer class="text-center text-white">
+          <!-- Copyright -->
+          <div
+              class="text-center p-3"
+              style="background-color: #ab4493;"
+              >
+            © 2020 Copyright:
+            <a class="text-white" href="#"
+              >Fromagerie</a
+              >
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+      </div>
+      <!-- End of .container -->
+    
+
+</body>
+  <!-- Integracion con Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Integracion con boostrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</html>
